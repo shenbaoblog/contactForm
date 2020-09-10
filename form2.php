@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require './contactForm_libs/functions.php';
+require './contactform_libs/functions.php';
 require_once dirname(__FILE__) . '/securimage/securimage.php';
 
 //POSTされたデータをチェック
@@ -27,7 +27,7 @@ $email = trim($email);
 $subject = trim($subject);
 $body = trim($body);
 
-
+// エラーメッセージを保存する配列の初期化
 $error = [];
 
 if ($name == '') {
@@ -36,19 +36,19 @@ if ($name == '') {
     $error[] = 'お名前は100文字以内でお願いいたします。';
 }
 
-$str = '123-4567';
-preg_match('/^[0-9]{3}-[0-9]{4}$/', $str);
-// 郵便番号チェック
-preg_match('/^\d{3}-?\d{4}$/', $str);
-// 電話番号チェック
-preg_match('/^(070|080|090)-?\d{4}-?\d{4}/', $str);
+// $str = '123-4567';
+// preg_match('/^[0-9]{3}-?[0-9]{4}$/', $str);
+// // 郵便番号チェック
+// preg_match('/^\d{3}-?\d{4}$/', $str);
+// // 電話番号チェック
+// preg_match('/^(070|080|090)-?\d{4}-?\d{4}/', $str);
 
 
 // メールアドレスチェック
 if ($email == '') {
     $error[] = 'メールアドレスは必須項目です。';
 } else {
-    $pattern = '/^([a-z0-9\+\_\-]+)(\.[a-z0-9\+\_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,}$/iD';
+    $pattern = '/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/iD';
 
     if (!preg_match($pattern, $email)) {
         $error[] = 'メールアドレスの形式が正しくありません。';

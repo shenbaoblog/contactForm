@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    require './contactForm_libs/functions.php';
+    require './contactform_libs/functions.php';
 
     $_POST = checkInput($_POST);
 

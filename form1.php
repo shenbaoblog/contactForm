@@ -2,8 +2,8 @@
     session_start();
     session_regenerate_id(true);
 
-    // require '../../contactForm_libs/functions.php';
-    require './contactForm_libs/functions.php';
+    // require '../../contactform_libs/functions.php';
+    require dirname(__FILE__). './contactform_libs/functions.php';
 
     $data = [];
 
